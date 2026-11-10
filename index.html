@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Joantress builds thoughtful digital experiences and creative solutions."
+    />
+    <title>Joantress | Home</title>
+    <style>
+      :root {
+        --bg: #f5f3ee;
+        --surface: #ffffff;
+        --surface-alt: #f0ebe4;
+        --text: #1f1f1f;
+        --muted: #5a5a5a;
+        --primary: #2c4b5a;
+        --primary-strong: #1a2f3d;
+        --accent: #d7b98f;
+        --border: rgba(31, 31, 31, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(1100px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      header {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .site-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 72px;
+      }
+
+      .brand {
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.5rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav a {
+        color: var(--muted);
+        font-weight: 600;
+        transition: color 0.2s ease;
+      }
+
+      nav a:hover,
+      nav a:focus-visible,
+      nav a[aria-current="page"] {
+        color: var(--primary-strong);
+      }
+
+      main {
+        padding: 3rem 0 4rem;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: center;
+        gap: 2rem;
+        padding: 3rem 0 2rem;
+      }
+
+      .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 0.75rem;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 4vw, 4.5rem);
+        line-height: 1.05;
+        margin: 0 0 1rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        color: var(--muted);
+        max-width: 600px;
+      }
+
+      .cta-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.9rem 1.4rem;
+        border-radius: 999px;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .button:hover,
+      .button:focus-visible {
+        transform: translateY(-1px);
+      }
+
+      .button-primary {
+        background: var(--primary);
+        color: white;
+        box-shadow: 0 10px 20px rgba(30, 46, 58, 0.12);
+      }
+
+      .button-secondary {
+        background: var(--surface-alt);
+        color: var(--primary-strong);
+        border: 1px solid var(--border);
+      }
+
+      .hero-card {
+        background: linear-gradient(135deg, var(--surface), var(--surface-alt));
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 2rem;
+        min-height: 260px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-shadow: 0 20px 40px rgba(17, 24, 39, 0.04);
+      }
+
+      .hero-card .stat {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .stat-item {
+        background: rgba(255, 255, 255, 0.6);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 1rem;
+      }
+
+      .stat-number {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--primary-strong);
+      }
+
+      .stat-label {
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+
+      section {
+        padding: 2rem 0;
+      }
+
+      .section-header {
+        margin-bottom: 1.5rem;
+      }
+
+      h2 {
+        font-size: clamp(1.8rem, 2.2vw, 2.6rem);
+        margin: 0 0 0.5rem;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+      }
+
+      article {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 1.5rem;
+        box-shadow: 0 8px 18px rgba(17, 24, 39, 0.02);
+      }
+
+      article h3 {
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+        font-size: 1.35rem;
+      }
+
+      article p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .about-preview {
+        background: var(--surface-alt);
+        border-radius: 20px;
+        padding: 2rem;
+        border: 1px solid var(--border);
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.6);
+      }
+
+      .site-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 80px;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .site-footer p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .site-header,
+        .site-footer {
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+          padding: 1rem 0;
+        }
+
+        nav ul {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="container site-header">
+        <a href="index.html" class="brand" aria-label="Joantress home">Joantress</a>
+
+        <nav aria-label="Main navigation">
+          <ul>
+            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="hero" aria-labelledby="hero-heading">
+          <div>
+            <p class="eyebrow">Welcome</p>
+            <h1 id="hero-heading">Hi, I'm Joantress</h1>
+            <p>
+              I build thoughtful digital experiences and creative solutions
+              designed to make ideas feel clear, useful, and memorable.
+            </p>
+
+            <div class="cta-group">
+              <a class="button button-primary" href="projects.html">View My Work</a>
+              <a class="button button-secondary" href="about.html">Get in Touch</a>
+            </div>
+          </div>
+
+          <div class="hero-card" aria-label="Highlights">
+            <div>
+              <p class="eyebrow">Creative focus</p>
+              <h2>Designing with intention.</h2>
+            </div>
+
+            <div class="stat">
+              <div class="stat-item">
+                <div class="stat-number">3+</div>
+                <div class="stat-label">Portfolio highlights</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Thoughtful approach</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="featured-projects">
+          <div class="section-header">
+            <h2 id="featured-projects">Featured Projects</h2>
+          </div>
+
+          <div class="projects-grid">
+            <article>
+              <h3>Project One</h3>
+              <p>
+                This is a placeholder description for one of my featured
+                projects, highlighting thoughtful design and problem-solving.
+              </p>
+            </article>
+
+            <article>
+              <h3>Project Two</h3>
+              <p>
+                This is a placeholder description for another project or case
+                study, focused on strategy, usability, and creativity.
+              </p>
+            </article>
+
+            <article>
+              <h3>Project Three</h3>
+              <p>
+                This is a placeholder description for a third portfolio highlight
+                that reflects my interest in meaningful digital work.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section aria-labelledby="about-preview">
+          <div class="about-preview">
+            <h2 id="about-preview">About Me</h2>
+            <p>
+              I'm a creative thinker with a passion for design, problem-solving,
+              and building meaningful work that connects people with ideas in a
+              compelling way.
+            </p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container site-footer">
+        <p>&copy; 2026 Joantress</p>
+
+        <nav aria-label="Footer navigation">
+          <ul>
+            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
