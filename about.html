@@ -39,7 +39,53 @@
         <section class="panel stack" aria-labelledby="approach-heading"><h2 id="approach-heading">My Approach</h2><p>I care about making information clear and creating useful, memorable digital experiences. My goal is to combine creativity with practical solutions.</p></section>
         <section class="panel" aria-labelledby="interests-heading"><h2 id="interests-heading">My Interests</h2><ul class="skill-list"><li>Digital design</li><li>Usability and accessibility</li><li>Creative problem-solving</li><li>Clear communication</li></ul></section>
       </div>
-      <section class="panel contact-panel stack" aria-labelledby="connect-heading"><h2 id="connect-heading">Connect with Me</h2><p>Explore my public coding work on <a href="https://github.com/joantresswarner">my GitHub profile</a>.</p></section>
+      <section id="contact" class="panel contact-panel stack" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact Me</h2>
+        <p id="form-help">All fields marked “required” must be completed. This portfolio demo checks your message but does not send it.</p>
+        <form id="contact-form" aria-describedby="form-help" action="about.html#contact" method="post">
+          <div id="error-summary" class="error-summary" tabindex="-1" aria-labelledby="error-heading" hidden>
+            <h3 id="error-heading">Please correct the following</h3>
+            <ul id="error-list"></ul>
+          </div>
+          <fieldset>
+            <legend>Your details</legend>
+            <div class="form-field">
+              <label for="contact-name">Name (required)</label>
+              <input id="contact-name" name="name" type="text" autocomplete="name" required maxlength="100" aria-describedby="name-error" />
+              <p id="name-error" class="field-error" hidden></p>
+            </div>
+            <div class="form-field">
+              <label for="contact-email">Email (required)</label>
+              <input id="contact-email" name="email" type="email" autocomplete="email" required maxlength="254" aria-describedby="email-hint email-error" />
+              <p id="email-hint" class="field-hint">Use an address like name@example.com.</p>
+              <p id="email-error" class="field-error" hidden></p>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Your message</legend>
+            <div class="form-field">
+              <label for="contact-topic">Topic (required)</label>
+              <select id="contact-topic" name="topic" required aria-describedby="topic-error">
+                <option value="">Choose a topic</option>
+                <option value="project">Project question</option>
+                <option value="collaboration">Collaboration</option>
+                <option value="other">Other</option>
+              </select>
+              <p id="topic-error" class="field-error" hidden></p>
+            </div>
+            <div class="form-field">
+              <label for="contact-message">Message (required)</label>
+              <textarea id="contact-message" name="message" rows="6" required maxlength="2000" aria-describedby="message-hint message-error"></textarea>
+              <p id="message-hint" class="field-hint">Maximum 2,000 characters.</p>
+              <p id="message-error" class="field-error" hidden></p>
+            </div>
+          </fieldset>
+          <button id="contact-submit" class="button" type="submit" disabled>Check message</button>
+          <p id="form-status" class="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
+          <noscript><p>This demo needs JavaScript to check your message; you can still visit my GitHub profile below.</p></noscript>
+        </form>
+        <p>You can also explore <a href="https://github.com/joantresswarner">my public work on GitHub</a>.</p>
+      </section>
     </main>
 
     <footer class="site-footer">
@@ -55,5 +101,6 @@
         </nav>
       </div>
     </footer>
+    <script src="contact.js" defer></script>
   </body>
 </html>
